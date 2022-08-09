@@ -1,0 +1,18 @@
+- Resolvendo um problema de adicionar o IPv6 no System32\drivers\etc\hosts
+    ex: fe80::215:afff:fec6:ea64 realhost
+
+  - Dessa maneira tudo funcionar perfeitamente 
+  ping fe80::215:afff:fec6:ea64
+  Reply from fe80::215:afff:fec6:ea64: time=2ms
+
+  - porem quando vc adicionar 
+  ping realhost
+  Ping request could not find host realhost.
+
+  - a solução para isso, seria achar o zona especifica do hosts
+  netsh interface ipv6 show addresses
+  
+  - com esse comando acima, acha o ids do ipv6, ficando dessa maneira:
+  fe80::215:afff:fec6:ea64%11 realhost
+
+  
